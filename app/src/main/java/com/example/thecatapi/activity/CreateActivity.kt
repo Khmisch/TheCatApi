@@ -82,10 +82,7 @@ class CreateActivity : AppCompatActivity() {
             val responseBodyCall: Call<ResponseBody> = RetrofitHttp.photoService.uploadFile(body, file.name)
 
             responseBodyCall.enqueue(object : Callback<ResponseBody> {
-                override fun onResponse(
-                    call: Call<ResponseBody>,
-                    response: Response<ResponseBody>
-                ) {
+                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                     Log.d("Success", "success " + response.code());
                     Log.d("Success", "success " + response.message());
                 }

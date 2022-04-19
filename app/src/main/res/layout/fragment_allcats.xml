@@ -46,6 +46,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:visibility="gone"
+                        android:indeterminateTint="@color/black"
                         android:layout_gravity="bottom|center"/>
 
                 <androidx.recyclerview.widget.RecyclerView

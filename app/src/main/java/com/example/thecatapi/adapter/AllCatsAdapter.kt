@@ -18,13 +18,6 @@ import com.squareup.picasso.Picasso
 
 class AllCatsAdapter  (var context: AllCatsFragment, var items: ArrayList<Photo>) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
-    @SuppressLint("NotifyDataSetChanged")
-    fun addPhotos(items: ArrayList<Photo>) {
-        this.items.addAll(items)
-        notifyDataSetChanged()
-    }
-
-
     override fun getItemCount(): Int {
         return items.size
     }
@@ -37,17 +30,8 @@ class AllCatsAdapter  (var context: AllCatsFragment, var items: ArrayList<Photo>
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val photoItem = items[position]
         val photoUrl = photoItem.url!!
-        val s1 = photoItem.breeds
-        val s2 = photoItem.breeds
-        val s3 = photoItem.breeds
-        val photoColor = R.color.grey
 
         if (holder is PinsViewHolder) {
-//                holder.tv_description.text = getDescription(s1, s2, s3)
-//                Glide.with(context).load(photoUrl)
-//                    .placeholder(ColorDrawable(Color.parseColor(photoColor)))
-//                    .error(ColorDrawable(Color.parseColor(photoColor)))
-//                    .into(holder.iv_pin);
             Picasso.get().load(photoUrl).placeholder(R.color.grey)
                 .into(holder.iv_pin)
         }
@@ -59,11 +43,4 @@ class AllCatsAdapter  (var context: AllCatsFragment, var items: ArrayList<Photo>
         var tv_description: TextView = view.findViewById(R.id.tv_description)
     }
 
-    private fun getDescription(s1: Any?, s2: String?, s3: String?): String {
-        return when {
-            s1 != null -> s1.toString()
-            s2 != null -> s2.toString()
-            else -> "Photo was made by $s3"
-        }
-    }
 }

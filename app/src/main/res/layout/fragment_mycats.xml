@@ -46,6 +46,7 @@
                         android:id="@+id/pb_cats"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
+                        android:indeterminateTint="@color/black"
                         android:visibility="gone"
                         android:layout_gravity="bottom|center"/>
 

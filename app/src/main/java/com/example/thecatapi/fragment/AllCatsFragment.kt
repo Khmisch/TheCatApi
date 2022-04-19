@@ -49,12 +49,10 @@ class AllCatsFragment: Fragment() {
                     val body = response.body()
                     Log.d("@@@",body.toString())
                     progressBar.visibility = View.GONE
-
                     if (body != null) {
                         refreshAdapter(body)
                     }
                 }
-
                 override fun onFailure(call: Call<ArrayList<Photo>>, t: Throwable) {
                     Log.e("@@@onFailure", t.message.toString())
                 }
