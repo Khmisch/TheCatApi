@@ -19,7 +19,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        throw RuntimeException("Test Crash") // Force a crash
 
+        initViews()
+
+    }
+
+    private fun initViews() {
         val allCatsFragment = AllCatsFragment()
         val myCatsFragment = MyCatsFragment()
 
@@ -40,7 +46,6 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-
     }
 
     private fun callCreateActivity() {
