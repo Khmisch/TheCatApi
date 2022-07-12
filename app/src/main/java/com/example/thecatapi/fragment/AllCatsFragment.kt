@@ -1,22 +1,27 @@
 package com.example.thecatapi.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.a14_recyclerviewdragandswipekotlin.helper.SpacesItemDecoration
 import com.example.pinterest.network.RetrofitHttp
 import com.example.thecatapi.R
+import com.example.thecatapi.activity.MainActivity
 import com.example.thecatapi.adapter.AllCatsAdapter
 import com.example.thecatapi.model.Photo
+import com.example.thecatapi.utils.DeepLink
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
 
 class AllCatsFragment: Fragment() {
     lateinit var recyclerView: RecyclerView
@@ -39,6 +44,10 @@ class AllCatsFragment: Fragment() {
         val decoration = SpacesItemDecoration(10)
         recyclerView.addItemDecoration(decoration)
         apiPhotoList()
+        var tv_link = view.findViewById<TextView>(R.id.tv_link)
+        val intent = Intent(requireActivity().application, MainActivity::class.java)
+        DeepLink.retrieveLink(intent ,tv_link)
+
     }
 
     private fun apiPhotoList() {

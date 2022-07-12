@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.thecatapi.R
 import com.example.thecatapi.fragment.AllCatsFragment
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        throw RuntimeException("Test Crash") // Force a crash
+//        throw RuntimeException("Test Crash") // Force a crash
 
         initViews()
 
